@@ -4,6 +4,8 @@
 
 This is my dotfiles repo. It's a work in progress... like everyones :-)
 
+![screenshot](https://github.com/webservices-network/dotfiles/blob/main/screenshot.png)
+
 Management of dotfiles are controlled through [chezmoi](https://www.chezmoi.io/).
 
 ## My Setup
