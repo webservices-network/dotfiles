@@ -1,0 +1,49 @@
+[user]
+	name = Scott Mackey
+	email = scottfmackey@gmail.com
+
+[alias]
+	cp = cherry pick
+
+	last = log -1 HEAD --stat
+	ls = ls-files
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	ll = log --oneline
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
+
+	# Show files ignored by git:
+	ign = ls-files -o -i --exclude-standard
+
+	# Display all the consul list
+	cl = config --list
+
+	# Display all the git aliases
+	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+
+[pull]
+	ff = only
+
+[color]
+	ui = true
+
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[core]
+	excludesfile = ~/.gitignore
+	editor = code --wait
+
+[init]
+	defaultBranch = main
+
+[fetch]
+	prune = true
+
+[merge]
+	tool = kdiff3
