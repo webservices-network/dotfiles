@@ -1,0 +1,130 @@
+# env:
+#   TERM: alactritty
+
+live_config_reload: true
+# When set to `true`, selected text will be copied to the primary clipboard.
+save_to_clipboard: true
+# Allow terminal applications to change Alacritty's window title.
+dynamic_title: true
+
+scrolling:
+    history: 10000
+    multiplier: 1
+
+selection:
+    semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+    save_to_clipboard: true
+
+# Window Layout
+window:
+  opacity: 0.9
+  padding:
+    x: 15
+    y: 10
+  decorations: none
+
+  dimensions:
+    columns: 150
+    lines: 30
+
+  dynamic_padding: true
+
+# Font configuration
+font:
+  normal:
+    family: "Hack Nerd Font"
+    style: Regular
+  bold:
+    family: "Victor Mono"
+    style: Regular
+  italic:
+    family: "Victor Mono"
+    style: Italic
+  bold_italic:
+    family: "Victor Mono"
+    style: Italic
+
+  size: 17.0
+
+  use_thin_strokes: true
+
+  # Character spacing
+  offset:
+    x: 1
+    y: 3
+
+  glyph_offset:
+    x: 0
+    y: 1
+
+  live_config_reload: true
+# draw_bold_text_with_bright_colors: true
+
+shell:
+    program: /bin/zsh
+    args:
+    - --login
+
+working_directory: ./Repos
+
+# TokyoNight Alacritty Colors
+colors:
+
+  cursor:
+    text: '0xc0b18b'
+    cursor: '0xffff55'
+
+  # Default colors
+  primary:
+    background: '0x020202'
+    foreground: '0xc0b18b'
+
+  # Normal colors
+  normal:
+    black:   '0x15161E'
+    red:     '0xe52222'
+    green:   '0x9ece6a'
+    yellow:  '0xffff55'
+    blue:    '0x67d9f0'
+    magenta: '0xbb9af7'
+    cyan:    '0x55ffff'
+    white:   '0xf2f2f2'
+
+  # Bright colors
+  # bright:
+  #   black:   '0x414868'
+  #   red:     '0xf7768e'
+  #   green:   '0x9ece6a'
+  #   yellow:  '0xe0af68'
+  #   blue:    '0x7aa2f7'
+  #   magenta: '0xbb9af7'
+  #   cyan:    '0x7dcfff'
+  #   white:   '0xc0caf5'
+
+  # indexed_colors:
+  #   - { index: 16, color: '0xff9e64' }
+  #   - { index: 17, color: '0xdb4b4b' }
+
+cursor:
+  style:
+    shape: Block
+    thickness: 0.2
+    unfocused_hollow: true
+    blinking: On
+    blink_interval: 750
+    color: #fff000
+
+url:
+  launcher: Firefox Developer Edition
+
+mouse:
+  hide_when_typing: true
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+key_bindings:
+  - { key: N,      mods: Command,         action: SpawnNewInstance }
+  - { key: Q,      mods: Command,         action: Quit             }
+  - { key: W,      mods: Command,         action: Quit             }
+  - { key: F,      mods: Command|Control, action: ToggleFullscreen }
+  - { key: 36,     mods: Command,         action: ToggleFullscreen }
