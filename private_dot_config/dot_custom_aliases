@@ -1,0 +1,301 @@
+# ----------------------
+# Aliases commands
+# ----------------------
+alias c="clear"
+alias ..="cd .."
+alias ...="cd ~"
+alias ls="exa --icons --long --git -la"
+alias o="open ."
+alias s="ssh"
+alias x="exit"
+alias mv="mv -i -v"
+alias rm="rm -i"
+alias rw="cd ~/Repos/Work"
+alias rl="cd ~/Repos/Learn"
+alias rp="cd ~/Repos/Personal"
+alias "?"=duck
+alias "??"=google
+alias "???"=bing
+
+
+# ----------------------
+# Utilities
+# ----------------------
+alias myip="host myip.opendns.com resolver1.opendns.com | grep 'myip.opendns.com has' | awk '{print $4}'"
+alias diskusage="df -h"
+alias folderusage="du -ch"
+alias totalfolderusage="du -sh"
+if [[ $OSTYPE == darwin* ]]; then
+  alias flush="dscacheutil -flushcache"
+fi
+# open ~/.zshrc in using the default editor specified in $EDITOR
+alias esh="$EDITOR ~/.zshrc"
+alias eal="$EDITOR ~/.config/.custom_aliases"
+alias sc="source $HOME/.zshrc"
+# Repo for dotfiles
+alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias sslagent="eval $(ssh-agent -s)"
+
+# Matrix animation in terminal
+alias mx="tmatrix --color=cyan"
+
+alias npml="npm list -g"
+
+# Misc
+getpid () {
+	ps -ax | grep $1
+}
+mkcd () {
+	mkdir $1 && cd $1
+}
+rmf () {
+  rm -rf $1
+}
+lspath () {
+  echo $PATH | sed "s/:/\n/g" | sort | uniq -c
+}
+bog () {
+  toilet -f future Hi $(whoami) --filter metal
+}
+duck () {
+  lynx "https://lite.duckduckgo.com/lite/?q="$1
+}
+sshg () {
+  ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_$1 -C $1
+  ssh-add ~/.ssh/id_ed25519_$1
+}
+sshl () {
+  for key in ~/.ssh/id_*; do ssh-keygen -l -f "${key}"; done | uniq
+}
+
+# GIT shortcuts
+g () {
+  git status
+}
+gs () {
+  git status -sbu
+}
+gull () {
+  git pull
+}
+gush () {
+  git push
+}
+gb () {
+  git checkout -b $1
+}
+gc () {
+  git commit -am $1
+}
+gch () {
+  git checkout $1
+}
+glean () {
+  git clean -df
+}
+gmain () {
+  git checkout main
+}
+ghard () {
+  git reset --hard
+}
+grevert () {
+  branch=$(git branch | grep \* | cut -d " " -f2);
+  git reset --hard origin/$branch
+}
+gstream () {
+  branch=$(git branch | grep \* | cut -d " " -f2);
+  git push --set-upstream origin $branch
+}
+glg () {
+	git log --graph --oneline --decorate --all
+}
+
+# ----------------------
+# vim "nvim"
+# ----------------------
+alias vi="nvim"
+alias vim="nvim"
+alias ea="nvim ~/.config/.config_aliases"
+alias ez="nvim ~/.zshrc"
+alias eg="nvim ~/.gitconfig"
+alias ev="nvim ~/.vimrc"
+
+# ----------------------
+# tmux
+# ----------------------
+alias t="tmux" # start tmux
+alias ta="t a -t" # attach to session
+alias tls="t ls" # list sessions
+alias tn="t new -s primary" # new session named primary
+alias tks="t kill-session -t" # kill session by name
+
+lynxpath=$(which lynx)
+
+if [ -e "$HOME/.config/lynx/lynx.cfg" ]; then
+  export LYNX_CFG="$HOME/.config/lynx/lynx.cfg"
+fi
+if [ -e "$HOME/.config/lynx/lynx.lss" ]; then
+  export LYNX_LSS="$HOME/.config/lynx/lynx.lss"
+fi
+if [ ! -x "$lynxpath" ]; then
+  echo "lynx is not installed"
+fi
+
+
+# yeah, i totally stole this from stack exchange, no shame
+rawurlencode () {
+  local string="${1}"
+  local strlen=${#string}
+  local encoded=""
+  local pos c o
+
+  for (( pos=0 ; pos<strlen ; pos++ )); do
+     c=${string:$pos:1}
+     case "$c" in
+        [-_.~a-zA-Z0-9] ) o="${c}" ;;
+        * )               printf -v o '%%%02x' "'$c"
+     esac
+     encoded+="${o}"
+  done
+  echo "${encoded}"    # You can either set a return variable (FASTER)
+  REPLY="${encoded}"   #+or echo the result (EASIER)... or both... :p
+}
+
+# rawurlencode "$*"
+
+duck () {
+  declare url=$(rawurlencode "$*")
+  lynx "https://lite.duckduckgo.com/lite/?q=$url"
+}
+google () {
+  declare url=$(rawurlencode "$*")
+  lynx "https://www.google.com/search?q=$url"
+}
+bing () {
+  declare url=$(rawurlencode "$*")
+  lynx "https://www.bing.com/search?q=$url"
+}
+
+
+
+
+# Custom shell commands
+export HYBRIS_HOME=~/clarks/b2c/Hybris/hybris/hybris;
+export PANGAEA_HOME=~/clarks/b2c/pangaea2;
+export HYBRIS_LOG_DIR=~/clarks/b2c/pangaea2/hybris/hybris/log;
+export HYBRIS_FE=~/clarks/b2c/pangaea2/FED;
+export CODE_HOME=~/clarks/b2c/pangaea2;
+
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home;
+
+# Hybris
+ss () {
+	cd ~/clarks/b2c/Hybris/solr/bin;
+	./solr start
+	cd -
+}
+
+cbh () {
+    cd $CODE_HOME
+}
+
+hbh () {
+  cd $HYBRIS_HOME/bin/platform
+}
+
+bhybris () {
+    cd $HYBRIS_HOME/bin/platform;
+    . ./setantenv.sh;
+    ant clean all
+}
+
+shybris () {
+  hbh;
+  ./hybrisserver.sh debug
+}
+
+bshybris () {
+    bhybris;
+    shybris;
+}
+
+pangaeaInitialise () {
+	hbh;
+#   . ./setantenv.sh && ant initialize -DconfigFile=../custom/pangaea2/pangaea2release/resources/init_config.json
+	ant initialize -DconfigFile=../custom/pangaea2/pangaea2release/resources/init_config.json
+}
+
+# Arg options: Chorme or ChromeHeadless
+smoketest () {
+   cd ~/clarks/b2b/automated-tests-eu;
+   git pull;
+   MODETYPE=$1;
+   export SELENIUM_MODE="$MODETYPE";
+   export BROWSER_PROFILE="DESKTOP_XLARGE";
+   mvn test -U -DENV=@local -Dcucumber.options="--tags @smoketest";
+   cd -
+}
+
+# RUN NPM Scripts (Arg options: dev, watch or build)
+r () {
+	cd $HYBRIS_FE
+	NAME=$1;
+	npm run $NAME;
+	cd -
+}
+
+see () {
+	local site=""
+    if [[ -f "$(pwd)/$1" ]]; then
+        site="$(pwd)/$1"
+    elif [[ "$1" =~ "^http" ]]; then
+        site="$1"
+    else
+        site="http://$1"
+    fi
+	open -a "Brave Browser" $site;
+}
+
+switchB2C ()
+{
+    export HYBRIS_HOME=~/clarks/b2c/Hybris/hybris/hybris;
+    export HYBRIS_LOG_DIR=~/clarks/b2c/pangaea2/Hybris/hybris/log;
+    export HYBRIS_TEMP_DIR=/Users/smackey/clarks/b2c/Hybris/hybris/temp;
+    export HYBRIS_BIN_DIR=/Users/smackey/clarks/b2c/Hybris/hybris/bin;
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home;
+    export CODE_HOME=~/clarks/b2c/pangaea2;
+    hbh;
+    #. ./setantenv.sh;
+    if [ ! "$(docker ps -q -f name=b2c-hybris)" ]; then
+        docker start b2c-hybris;
+    fi
+}
+switchB2B ()
+{
+    # export HYBRIS_HOME=~/clarks/b2b/hybris-b2b/hybris;
+    # export HYBRIS_LOG_DIR=~/clarks/b2b/hybris-b2b/hybris/log;
+    # export HYBRIS_TEMP_DIR=~/clarks/b2b/hybris-b2b/hybris/temp;
+    # export HYBRIS_BIN_DIR=~/clarks/b2b/hybris-b2b/hybris/bin;
+    # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home;
+    # export CODE_HOME=~/clarks/b2b/b2b-hybris;
+    # hbh;
+    # # . ./setantenv.sh;
+    # if [ ! "$(docker ps -q -f name=b2b-mysql)" ]; then
+    #     docker start b2b-mysql;
+    # fi
+}
+switchOutlet ()
+{
+    export HYBRIS_HOME=~/clarks/outlet-online/hybris;
+    export HYBRIS_LOG_DIR=~/clarks/outlet-online/hybris/log;
+    export HYBRIS_TEMP_DIR=/Users/smackey/clarks/outlet-online/hybris/temp;
+    export HYBRIS_BIN_DIR=/Users/smackey/clarks/outlet-online/hybris/bin;
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home;
+    export CODE_HOME=~/clarks/outlet-online/repository;
+    hbh;
+    #. ./setantenv.sh;
+    if [ ! "$(docker ps -q -f name=outlet-hybris)" ]; then
+        docker start outlet-hybris;
+    fi
+}
