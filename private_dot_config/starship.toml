@@ -1,130 +1,142 @@
+## FIRST LINE/ROW: Info & Status
+# First param ─┌
+[username]
+format = "[╭─$user]($style)@"
+style_user = "bold yellow"
+style_root = "bold orange"
+show_always = true
 
-[character]
-success_symbol = "[>](bold green)"
-error_symbol = "[x](bold red)"
-vicmd_symbol = "[<](bold green)"
+# Second param
+[hostname]
+format = "[$hostname]($style) in "
+style = "blue"
+trim_at = "-"
+ssh_only = false
+disabled = false
 
-[git_commit]
-commit_hash_length = 4
-tag_symbol = "🔖 "
+# Third param
+[directory]
+style = "purple"
+truncation_length = 0
+truncate_to_repo = true
+truncation_symbol = "repo: "
 
+# Before all the version info (python, nodejs, php, etc.)
 [git_status]
-ahead = ">"
-behind = "<"
-diverged = "<>"
-renamed = "r"
+style = "white"
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
 deleted = "x"
 
+# Last param in the first line/row
+[cmd_duration]
+min_time = 1
+format = "took [$duration]($style)"
+disabled = true
+
+
+## SECOND LINE/ROW: Prompt
+# Somethere at the beginning
+[battery]
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
+disabled = true
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+threshold = 15
+style = "bold red"
+disabled = true
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+threshold = 50
+style = "bold yellow"
+disabled = true
+
+[[battery.display]]  # "bold green" style when capacity is between 10% and 30%
+threshold = 80
+style = "bold green"
+disabled = true
+
+# Prompt: optional param 1
+[time]
+format = " 🕙 $time($style)\n"
+time_format = "%T"
+style = "bright-white"
+disabled = true
+
+# Prompt: param 2 └─
+[character]
+success_symbol = "[╰─λ](bold yellow)"
+error_symbol = "[×](bold red)"
+
+# SYMBOLS
+[status]
+symbol = "🔴"
+format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
+map_symbol = true
+disabled = false
+
 [aws]
-symbol = "aws "
-
-[bun]
-symbol = "bun "
-
-[c]
-symbol = "C "
-
-[cobol]
-symbol = "cobol "
+symbol = " "
 
 [conda]
-symbol = "conda "
-
-[crystal]
-symbol = "cr "
-
-[cmake]
-symbol = "cmake "
-
-[daml]
-symbol = "daml "
+symbol = " "
 
 [dart]
-symbol = "dart "
-
-[deno]
-symbol = "deno "
-
-[dotnet]
-symbol = ".NET "
-
-[directory]
-read_only = " ro"
+symbol = " "
 
 [docker_context]
-symbol = "docker "
+symbol = " "
 
 [elixir]
-symbol = "exs "
+symbol = " "
 
 [elm]
-symbol = "elm "
+symbol = " "
 
 [git_branch]
-symbol = "🌱 "
-truncation_length = 4
-truncation_symbol = ""
-ignore_branches = ["master", "main"]
+symbol = " "
 
 [golang]
-symbol = "go "
+symbol = " "
 
 [hg_branch]
-symbol = "hg "
+symbol = " "
 
 [java]
-symbol = "java "
+symbol = " "
 
 [julia]
-symbol = "jl "
-
-[kotlin]
-symbol = "kt "
-
-[lua]
-symbol = "lua "
-
-[nodejs]
-symbol = "nodejs "
-
-[memory_usage]
-symbol = "memory "
+symbol = " "
 
 [nim]
-symbol = "nim "
+symbol = " "
 
 [nix_shell]
-symbol = "nix "
+symbol = " "
+
+[nodejs]
+symbol = " "
 
 [package]
-symbol = "pkg "
+symbol = " "
 
 [perl]
-symbol = "pl "
+symbol = " "
 
 [php]
-symbol = "php "
-
-[purescript]
-symbol = "purs "
+symbol = " "
 
 [python]
-symbol = "py "
+symbol = " "
+
+[ruby]
+symbol = " "
 
 [rust]
-symbol = "rs "
-
-[scala]
-symbol = "scala "
-
-[sudo]
-symbol = "sudo "
+symbol = " "
 
 [swift]
-symbol = "swift "
-
-[terraform]
-symbol = "terraform "
-
-[zig]
-symbol = "zig "
+symbol = "ﯣ "
