@@ -1,0 +1,4 @@
+# .bashrc isn't used by macOS, so I'm sourceing it from .bash_profile for other OSes. Don't add anything here!
+if [ -f ~/.bashrc ]; then
+. ~/.bashrc
+fi
