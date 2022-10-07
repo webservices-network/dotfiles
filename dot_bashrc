@@ -1,5 +1,5 @@
-#!bash
-i
+#! /usr/local/bin/bash
+
 export HOMEBREW="/opt/homebrew/bin"
 export PNPM_HOME="$HOME/Library/pnpm"
 export MY_HOME="$HOME/.local/bin"
@@ -52,7 +52,6 @@ alias sslagent="eval $(ssh-agent -s)"
 
 # Matrix animation in terminal
 alias neo="tmatrix --color=cyan"
-
 alias npml="npm list -g"
 
 # Misc
@@ -156,7 +155,6 @@ if [ ! -x "$lynxpath" ]; then
   echo "lynx is not installed"
 fi
 
-
 # yeah, i totally stole this from stack exchange, no shame
 rawurlencode () {
   local string="${1}"
@@ -176,8 +174,6 @@ rawurlencode () {
   REPLY="${encoded}"   #+or echo the result (EASIER)... or both... :p
 }
 
-# rawurlencode "$*"
-
 duck () {
   declare url=$(rawurlencode "$*")
   lynx "https://lite.duckduckgo.com/lite/?q=$url"
@@ -194,11 +190,6 @@ bing () {
 # Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-# FZF Vim Plugin - Fuzzy search
-
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# export FZF_DEFAULT_OPTS='--height=50% --preview="cat {}" --preview-window=right:60%:wrap'
 
 # Start Neofetch
 # neofetch
