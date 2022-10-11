@@ -1,5 +1,6 @@
-# env:
-#   TERM: alactritty
+env:
+  TERM: xterm-256color
+# import: ~/.config/alactritty/cappuccin-macchiato.yml
 
 live_config_reload: true
 # When set to `true`, selected text will be copied to the primary clipboard.
@@ -58,11 +59,11 @@ font:
   live_config_reload: true
 # draw_bold_text_with_bright_colors: true
 shell:
-  program: /usr/local/bin/bash
+  program: /bin/zsh
   args:
     - --login
 
-working_directory: ./Repos
+# working_directory: ./Repos
 
 # TokyoNight Alacritty Colors
 # colors:
@@ -70,9 +71,9 @@ working_directory: ./Repos
 #     text: "0xc0b18b"
 #     cursor: "0xffff55"
 # # Default colors
-primary:
-  background: "0x000000"
-  foreground: "0xc0b18b"
+# primary:
+#   background: "0x000000"
+#   foreground: "0xc0b18b"
 
 # # Normal colors
 # normal:
@@ -97,17 +98,100 @@ primary:
 # indexed_colors:
 #   - { index: 16, color: '0xff9e64' }
 #   - { index: 17, color: '0xdb4b4b' }
-cursor:
-  style:
-    shape: Block
-    thickness: 0.5
-    unfocused_hollow: true
-    blinking: On
-    blink_interval: 750
-    color: 0xe0af68
+
+colors:
+  # Default colors
+  primary:
+    background: "#24273A" # base
+    foreground: "#CAD3F5" # text
+    # Bright and dim foreground colors
+    dim_foreground: "#CAD3F5" # text
+    bright_foreground: "#CAD3F5" # text
+
+  # Cursor colors
+  cursor:
+    text: "#24273A" # base
+    cursor: "#F4DBD6" # rosewater
+  vi_mode_cursor:
+    text: "#24273A" # base
+    cursor: "#B7BDF8" # lavender
+
+  # Search colors
+  search:
+    matches:
+      foreground: "#24273A" # base
+      background: "#A5ADCB" # subtext0
+    focused_match:
+      foreground: "#24273A" # base
+      background: "#A6DA95" # green
+    footer_bar:
+      foreground: "#24273A" # base
+      background: "#A5ADCB" # subtext0
+
+  # Keyboard regex hints
+  hints:
+    start:
+      foreground: "#24273A" # base
+      background: "#EED49F" # yellow
+    end:
+      foreground: "#24273A" # base
+      background: "#A5ADCB" # subtext0
+
+  # Selection colors
+  selection:
+    text: "#24273A" # base
+    background: "#F4DBD6" # rosewater
+
+  # Normal colors
+  normal:
+    black: "#494D64" # surface1
+    red: "#ED8796" # red
+    green: "#A6DA95" # green
+    yellow: "#EED49F" # yellow
+    blue: "#8AADF4" # blue
+    magenta: "#F5BDE6" # pink
+    cyan: "#8BD5CA" # teal
+    white: "#B8C0E0" # subtext1
+
+  # Bright colors
+  bright:
+    black: "#5B6078" # surface2
+    red: "#ED8796" # red
+    green: "#A6DA95" # green
+    yellow: "#EED49F" # yellow
+    blue: "#8AADF4" # blue
+    magenta: "#F5BDE6" # pink
+    cyan: "#8BD5CA" # teal
+    white: "#A5ADCB" # subtext0
+
+  # Dim colors
+  dim:
+    black: "#494D64" # surface1
+    red: "#ED8796" # red
+    green: "#A6DA95" # green
+    yellow: "#EED49F" # yellow
+    blue: "#8AADF4" # blue
+    magenta: "#F5BDE6" # pink
+    cyan: "#8BD5CA" # teal
+    white: "#B8C0E0" # subtext1
+
+  indexed_colors:
+    - { index: 16, color: "#F5A97F" }
+    - { index: 17, color: "#F4DBD6" }
+
+theme: catppuccin-macchiato
+
+# cursor:
+#   style:
+#     shape: Block
+#     thickness: 0.5
+#     unfocused_hollow: true
+#     blinking: On
+#     blink_interval: 750
+#     color: 0xe0af68
 
 url:
-  launcher: Brave
+  launcher: Firefox Developer Edition
 
 mouse:
   hide_when_typing: true
@@ -120,32 +204,31 @@ key_bindings:
   - { key: W, mods: Command, action: Quit }
   - { key: F, mods: Command|Control, action: ToggleFullscreen }
   - { key: 36, mods: Command, action: ToggleFullscreen }
+# colors:
+#   # Default colors
+#   primary:
+#     background: "#0A0E14"
+#     foreground: "#B3B1AD"
 
-colors:
-  # Default colors
-  primary:
-    background: "#0A0E14"
-    foreground: "#B3B1AD"
+#   # Normal colors
+#   normal:
+#     black: "#01060E"
+#     red: "#EA6C73"
+#     green: "#91B362"
+#     yellow: "#F9AF4F"
+#     blue: "#53BDFA"
+#     magenta: "#FAE994"
+#     cyan: "#90E1C6"
+#     white: "#C7C7C7"
 
-  # Normal colors
-  normal:
-    black: "#01060E"
-    red: "#EA6C73"
-    green: "#91B362"
-    yellow: "#F9AF4F"
-    blue: "#53BDFA"
-    magenta: "#FAE994"
-    cyan: "#90E1C6"
-    white: "#C7C7C7"
-
-  # Bright colors
-  bright:
-    black: "#686868"
-    red: "#F07178"
-    green: "#C2D94C"
-    yellow: "#FFB454"
-    blue: "#59C2FF"
-    magenta: "#FFEE99"
-    cyan: "#95E6CB"
-    white: "#FFFFFF"
-theme: Ayu-Dark
+#   # Bright colors
+#   bright:
+#     black: "#686868"
+#     red: "#F07178"
+#     green: "#C2D94C"
+#     yellow: "#FFB454"
+#     blue: "#59C2FF"
+#     magenta: "#FFEE99"
+#     cyan: "#95E6CB"
+#     white: "#FFFFFF"
+# theme: Ayu-Dark

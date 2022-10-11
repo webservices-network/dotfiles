@@ -1,6 +1,6 @@
 export HOMEBREW="/opt/homebrew/bin"
 export PNPM_HOME="/Users/scott/Library/pnpm"
-export EDITOR="code --wait"
+export EDITOR="nvim"
 
 # Always append or prepend new paths to $PATH variable in your config file. Example: /etc/paths adds MacOS default paths
 export PATH=$PATH:$HOMEBREW:$PNPM_HOME

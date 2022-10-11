@@ -67,6 +67,9 @@ sshg () {
 sshl () {
   for key in ~/.ssh/id_*; do ssh-keygen -l -f "${key}"; done | uniq
 }
+chsh () {
+  alias chsh="sudo chsh -s $(which zsh) $USER"
+}
 
 # GIT shortcuts
 g () {
