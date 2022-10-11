@@ -10,8 +10,9 @@ Management of dotfiles are controlled through [chezmoi](https://www.chezmoi.io/)
 
 ## My Setup
 - OS: MacOS
-- Shell: zsh (fish support too)
+- Shell: zsh (added bash & fish support too... because why not?)
 - Terminal: [Kitty](https://sw.kovidgoyal.net/kitty/)
+- Attempting to code with NeoVim and chosen AstroNvim package, LunarVim seem to be too helpful, if that makes sense ;-)
 - Package Manager: [Homebrew](https://brew.sh/)
 - Zsh Plugin Manager: [Antidote](https://getantidote.github.io/)
   - Plugins Used
@@ -31,5 +32,5 @@ Management of dotfiles are controlled through [chezmoi](https://www.chezmoi.io/)
 ### TODO
 - [x] Setup dotfiles management using [chezmoi](https://www.chezmoi.io/)
 - [x] Revert to Zsh as the default shell
+- [x] Choose an Neovim package, [LunarVim](https://www.lunarvim.org/) or [AstroNvim](https://github.com/AstroNvim/AstroNvim)
 - [ ] Create install automation script (Maybe Ansible?)
-- [ ] Choose an Neovim package, [LunarVim](https://www.lunarvim.org/) or [AstroNvim](https://github.com/AstroNvim/AstroNvim)
