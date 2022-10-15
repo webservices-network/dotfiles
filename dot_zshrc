@@ -1,9 +1,12 @@
 export HOMEBREW="/opt/homebrew/bin"
-export PNPM_HOME="/Users/scott/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
+export MY_HOME="$HOME/.local/bin"
 export EDITOR="nvim"
 
+export ANSIBLE_INVENTORY="$HOME/.config/ansible/hosts"
+
 # Always append or prepend new paths to $PATH variable in your config file. Example: /etc/paths adds MacOS default paths
-export PATH=$PATH:$HOMEBREW:$PNPM_HOME
+export PATH=$PATH:$HOMEBREW:$PNPM_HOME:MY_HOME
 
 # Start TMUX automatically
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
@@ -55,14 +58,16 @@ bindkey "^[[B" history-substring-search-down
 # Use my custom aliases file
 source ~/.config/.custom_aliases
 
-# Node Version Manager
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # FZF Vim Plugin - Fuzzy search
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # export FZF_DEFAULT_OPTS='--height=50% --preview="cat {}" --preview-window=right:60%:wrap'
+
+# . "$HOME/.cargo/env"
 
 # Start Neofetch
 # neofetch

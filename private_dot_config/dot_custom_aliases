@@ -10,13 +10,11 @@ alias s="ssh"
 alias x="exit"
 alias mv="mv -i -v"
 alias rm="rm -i"
-alias rw="cd ~/Repos/Work"
-alias rl="cd ~/Repos/Learn"
-alias rp="cd ~/Repos/Personal"
+alias ln="ln -i"
 alias "?"=duck
 alias "??"=google
 alias "???"=bing
-
+alias ftank="asciiquarium"
 
 # ----------------------
 # Utilities
@@ -113,7 +111,9 @@ gstream () {
 glg () {
 	git log --graph --oneline --decorate --all
 }
-
+wsh () {
+  echo "zsh shell is being used"
+}
 # ----------------------
 # vim "nvim"
 # ----------------------
@@ -182,15 +182,6 @@ bing () {
 
 
 
-
-# Custom shell commands
-export HYBRIS_HOME=~/clarks/b2c/Hybris/hybris/hybris;
-export PANGAEA_HOME=~/clarks/b2c/pangaea2;
-export HYBRIS_LOG_DIR=~/clarks/b2c/pangaea2/hybris/hybris/log;
-export HYBRIS_FE=~/clarks/b2c/pangaea2/FED;
-export CODE_HOME=~/clarks/b2c/pangaea2;
-
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home;
 
 # Hybris
 ss () {
@@ -272,33 +263,5 @@ switchB2C ()
     #. ./setantenv.sh;
     if [ ! "$(docker ps -q -f name=b2c-hybris)" ]; then
         docker start b2c-hybris;
-    fi
-}
-switchB2B ()
-{
-    # export HYBRIS_HOME=~/clarks/b2b/hybris-b2b/hybris;
-    # export HYBRIS_LOG_DIR=~/clarks/b2b/hybris-b2b/hybris/log;
-    # export HYBRIS_TEMP_DIR=~/clarks/b2b/hybris-b2b/hybris/temp;
-    # export HYBRIS_BIN_DIR=~/clarks/b2b/hybris-b2b/hybris/bin;
-    # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home;
-    # export CODE_HOME=~/clarks/b2b/b2b-hybris;
-    # hbh;
-    # # . ./setantenv.sh;
-    # if [ ! "$(docker ps -q -f name=b2b-mysql)" ]; then
-    #     docker start b2b-mysql;
-    # fi
-}
-switchOutlet ()
-{
-    export HYBRIS_HOME=~/clarks/outlet-online/hybris;
-    export HYBRIS_LOG_DIR=~/clarks/outlet-online/hybris/log;
-    export HYBRIS_TEMP_DIR=/Users/smackey/clarks/outlet-online/hybris/temp;
-    export HYBRIS_BIN_DIR=/Users/smackey/clarks/outlet-online/hybris/bin;
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home;
-    export CODE_HOME=~/clarks/outlet-online/repository;
-    hbh;
-    #. ./setantenv.sh;
-    if [ ! "$(docker ps -q -f name=outlet-hybris)" ]; then
-        docker start outlet-hybris;
     fi
 }

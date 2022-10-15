@@ -3,7 +3,7 @@
 export HOMEBREW="/opt/homebrew/bin"
 export PNPM_HOME="$HOME/Library/pnpm"
 export MY_HOME="$HOME/.local/bin"
-export EDITOR="code"
+export EDITOR="nvim"
 
 export ANSIBLE_INVENTORY="$HOME/.config/ansible/hosts"
 
@@ -52,6 +52,7 @@ alias sslagent="eval $(ssh-agent -s)"
 
 # Matrix animation in terminal
 alias neo="tmatrix --color=cyan"
+
 alias npml="npm list -g"
 
 # Misc
@@ -79,6 +80,9 @@ sshg () {
 }
 sshl () {
   for key in ~/.ssh/id_*; do ssh-keygen -l -f "${key}"; done | uniq
+}
+chsh () {
+  alias chsh="sudo chsh -s $(which zsh) $USER"
 }
 
 # GIT shortcuts
@@ -122,6 +126,9 @@ gstream () {
 }
 glg () {
 	git log --graph --oneline --decorate --all
+}
+wsh () {
+  echo "bash shell is being used"
 }
 
 # ----------------------
@@ -187,17 +194,18 @@ bing () {
   lynx "https://www.bing.com/search?q=$url"
 }
 
-# Node Version Manager
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" 
 
 # Start Neofetch
 # neofetch
-# bog
+bog
 
 # Start Zoxide #
 eval "$(zoxide init bash)"
 
 # Start starship
 eval "$(starship init bash)"
-. "$HOME/.cargo/env"
+
+# . "$HOME/.cargo/env"
