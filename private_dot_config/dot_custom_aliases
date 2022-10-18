@@ -1,5 +1,5 @@
 # ----------------------
-# Aliases commands
+
 # ----------------------
 alias c="clear"
 alias ..="cd .."
@@ -27,8 +27,8 @@ if [[ $OSTYPE == darwin* ]]; then
   alias flush="dscacheutil -flushcache"
 fi
 # open ~/.zshrc in using the default editor specified in $EDITOR
-alias esh="$EDITOR ~/.zshrc"
-alias eal="$EDITOR ~/.config/.custom_aliases"
+# alias esh="$EDITOR ~/.zshrc"
+# alias eal="$EDITOR ~/.config/.custom_aliases"
 alias sc="source $HOME/.zshrc"
 # Repo for dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
@@ -119,10 +119,10 @@ wsh () {
 # ----------------------
 alias vi="nvim"
 alias vim="nvim"
-alias ea="nvim ~/.config/.config_aliases"
-alias ez="nvim ~/.zshrc"
-alias eg="nvim ~/.gitconfig"
-alias ev="nvim ~/.vimrc"
+alias ea="$EDITOR ~/.config/.config_aliases"
+alias ez="$EDITOR ~/.zshrc"
+alias eg="$EDITOR ~/.gitconfig"
+alias ev="$EDITOR ~/.vimrc"
 
 # ----------------------
 # tmux
@@ -132,6 +132,10 @@ alias ta="t a -t" # attach to session
 alias tls="t ls" # list sessions
 alias tn="t new -s primary" # new session named primary
 alias tks="t kill-session -t" # kill session by name
+# ts () {
+#   tmux new -s primary
+#   tmux new-window $1
+# }
 
 lynxpath=$(which lynx)
 
@@ -263,5 +267,33 @@ switchB2C ()
     #. ./setantenv.sh;
     if [ ! "$(docker ps -q -f name=b2c-hybris)" ]; then
         docker start b2c-hybris;
+    fi
+}
+switchB2B ()
+{
+    # export HYBRIS_HOME=~/clarks/b2b/hybris-b2b/hybris;
+    # export HYBRIS_LOG_DIR=~/clarks/b2b/hybris-b2b/hybris/log;
+    # export HYBRIS_TEMP_DIR=~/clarks/b2b/hybris-b2b/hybris/temp;
+    # export HYBRIS_BIN_DIR=~/clarks/b2b/hybris-b2b/hybris/bin;
+    # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home;
+    # export CODE_HOME=~/clarks/b2b/b2b-hybris;
+    # hbh;
+    # # . ./setantenv.sh;
+    # if [ ! "$(docker ps -q -f name=b2b-mysql)" ]; then
+    #     docker start b2b-mysql;
+    # fi
+}
+switchOutlet ()
+{
+    export HYBRIS_HOME=~/clarks/outlet-online/hybris;
+    export HYBRIS_LOG_DIR=~/clarks/outlet-online/hybris/log;
+    export HYBRIS_TEMP_DIR=/Users/smackey/clarks/outlet-online/hybris/temp;
+    export HYBRIS_BIN_DIR=/Users/smackey/clarks/outlet-online/hybris/bin;
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home;
+    export CODE_HOME=~/clarks/outlet-online/repository;
+    hbh;
+    #. ./setantenv.sh;
+    if [ ! "$(docker ps -q -f name=outlet-hybris)" ]; then
+        docker start outlet-hybris;
     fi
 }
