@@ -69,6 +69,12 @@ sshl () {
 chsh () {
   alias chsh="sudo chsh -s $(which zsh) $USER"
 }
+sshls () {
+  ssh-add -l
+}
+sshpth () {
+  git config --get remote.origin.url
+}
 
 # GIT shortcuts
 g () {
@@ -120,7 +126,7 @@ wsh () {
 # ----------------------
 alias vi="nvim"
 alias vim="nvim"
-alias ea="$EDITOR ~/.config/.config_aliases"
+alias ea="$EDITOR ~/.config/.custom_aliases"
 alias ez="$EDITOR ~/.zshrc"
 alias eg="$EDITOR ~/.gitconfig"
 alias ev="$EDITOR ~/.vimrc"
@@ -185,7 +191,14 @@ bing () {
   lynx "https://www.bing.com/search?q=$url"
 }
 
-
+sshwn () {
+  ssh-add -D
+  ssh-add ~/.ssh/id_ed25519_github-wn-minimac
+}
+sshnv () {
+  ssh-add -D
+  ssh-add ~/.ssh/id_ed25519_github-neuvim-minimac
+}
 
 
 # Hybris
