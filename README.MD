@@ -20,6 +20,7 @@ Management of dotfiles are controlled through [chezmoi](https://www.chezmoi.io/)
     - zsh-completions
     - zsh-history-substring-search
     - zsh-syntax-highlighting
+- Editor: Working with NeoVim now. Removed NeoVim out of my dotfile since out of scope of dotfiles. See my new open source [NeuVim](
 
 
 ## Installations
@@ -31,6 +32,6 @@ Management of dotfiles are controlled through [chezmoi](https://www.chezmoi.io/)
 
 ### TODO
 - [x] Setup dotfiles management using [chezmoi](https://www.chezmoi.io/)
-- [x] Revert to Zsh as the default shell
-- [x] Choose an Neovim package, [LunarVim](https://www.lunarvim.org/) or [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+- [x] Reverted to Zsh as the default shell
+- [x] --Choose an Neovim package-- [LunarVim](https://www.lunarvim.org/) or [AstroNvim](https://github.com/AstroNvim/AstroNvim)
 - [ ] Create install automation script (Maybe Ansible?)

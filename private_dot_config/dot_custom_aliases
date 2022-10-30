@@ -8,9 +8,10 @@ alias ls="exa --icons --long --git -la"
 alias o="open ."
 alias s="ssh"
 alias x="exit"
-alias mv="mv -i -v"
+alias mv="mv -iv"
 alias rm="rm -i"
-alias ln="ln -i"
+alias ln="ln -iv"
+alias cp="cp -riv"
 alias "?"=duck
 alias "??"=google
 alias "???"=bing
@@ -44,7 +45,7 @@ getpid () {
 	ps -ax | grep $1
 }
 mkcd () {
-	mkdir $1 && cd $1
+	mkdir -vp $1 && cd $1
 }
 rmf () {
   rm -rf $1
